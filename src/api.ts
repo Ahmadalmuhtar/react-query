@@ -1,5 +1,5 @@
-interface Item {
-  id: number;
+export interface Item {
+  id?: number;
   name: string;
   age: number;
 }
@@ -62,7 +62,7 @@ export const updateItem = async (
 export const deleteItem = async (id: number) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const index = data.findIndex((d) => d.id === id);
+      const index = data.findIndex((i) => i.id === id);
       if (index !== -1) {
         const deletedItem = data.splice(index, 1);
         resolve(deletedItem[0]);
